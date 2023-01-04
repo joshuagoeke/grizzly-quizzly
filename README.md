@@ -4,6 +4,11 @@ In this homework assignment from the University of Texas-Austin Bootcamp we were
 
 Our instructor Leah Nelson helped us conceptualize the solution with some pseudo-code.
 
+I also took many hints/tips/tricks from James Quick's video series on building a Quiz App.
+
+https://github.com/jamesqquick
+
+
 
 
 Here are the given relevant assignment details:

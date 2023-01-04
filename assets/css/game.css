@@ -1,0 +1,32 @@
+.container{
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 80rem;
+        margin: 0 auto;
+      }
+      
+      .container{
+        width: 100%;
+      }
+}
+.abcd-container{
+    display:flex;
+    margin-bottom:0.5rem;
+    width:100%;
+    font-size:1.8rem;
+}
+
+.prefix{
+    padding: 1.5rem 2.5rem;
+    background-color: beige;
+    border-radius: 0.6em;
+}
+
+.abcd-option{
+    padding: 1.5rem;
+}
+

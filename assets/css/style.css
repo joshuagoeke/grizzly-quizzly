@@ -1,44 +1,52 @@
 /*global settings*/
+:root{
+  background-color: rgb(204, 250, 250);
+  font-size: 62.5%;
+  --mainFont: Georgia, "Times New Roman", Times, serif;
+  font: var(--mainFont);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  body {
-    min-height: 100%;
-    line-height: 1;
-    font-family: sans-serif;
-  }
-  
-  header{
-
-  }
-
-  nav{
-
-  }
-
 /*various headings*/
+h1,
+h2,
+h3,
+h4, {
+  margin-bottom: 1rem;
+}
+
 h1 {
-  font-size: 300%;
+  font-size: 5.4rem;
+  font-family: var(--mainFont);
+  color:rgb(235, 147, 65)
+}
+
+h1 > span {
+  font-size: 2.4rem;
+  font-weight: 500;
 }
 
 h2 {
-  font-size: 200%;
-}  
-
-h3  {
-  font-size: 150%;
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
+  font-weight:700;
 }
-  ol, ul {
-    list-style: none;
-  }
 
+h3 {
+  font-size: 2.8rem;
+  font-weight:500;
+}
 
-  /* Matches the font of special elements to the rest of the page */
-  input, select, option, optgroup, textarea, button,
-  pre, code {
-    font-size: 100%;
-    font-family: inherit;
-  }
+/* UTILITIES */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

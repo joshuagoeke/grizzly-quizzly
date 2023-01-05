@@ -55,17 +55,30 @@ var theWholeShebang = [
         answer2: "Complete Waste of Time",
         answer3: "9.8 m/s^2",
         answer4: "An African or a European Swallow?",
-        DingDing: 4,
+        DingDing: 3,
     },
     {
-        question: "Which Actor was in Harry Potter films and a Fish Called Wanda?",
+        question: "Which Actor was in Harry Potter films and A Fish Called Wanda?",
         answer1: "John Cleese",
         answer2: "Terry Jones",
         answer3: "Eric Idle",
         answer4: "Michael Palin",
-        DingDing: 1,
+        DingDing: 0,
+    },
+    {
+        question: "To what shalt thou count when hurling the Holy Hand Grenade of Antioch?",
+        answer1: "1",
+        answer2: "2",
+        answer3: "3",
+        answer4: "5",
+        DingDing: 2,
     },
 ];
+
+// Functions
+
+// function questionCounter(){
+
 
 liveQuestion.textContent = theWholeShebang[0].question; 
 liveOption0.textContent = theWholeShebang[0].answer1;
@@ -73,6 +86,6 @@ liveOption1.textContent = theWholeShebang[0].answer2;
 liveOption2.textContent = theWholeShebang[0].answer3;
 liveOption3.textContent = theWholeShebang[0].answer4;
 
-
+// }; //function wrapper
 console.log((theWholeShebang[1].question));
 

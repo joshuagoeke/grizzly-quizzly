@@ -31,6 +31,22 @@
     text-align: left;
 }
 
+.question{
+    padding: 1rem;
+}
+
 #game{
     margin: 2rem;
 }
+
+@media screen and (max-width: 820px){
+    .container{
+        font-family: var(--mainFont);
+        width: 100vw;
+        height: 100vh;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+  
+  
+  }

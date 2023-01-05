@@ -4,9 +4,13 @@ In this homework assignment from the University of Texas-Austin Bootcamp we were
 
 Our instructor Leah Nelson helped us conceptualize the solution with some pseudo-code.
 
-I also took many hints/tips/tricks from James Quick's video series on building a Quiz App.
+I also took many hints/tips/tricks from James Quick's video series on building a Quiz App, especially the HTML/CSS.
 
 https://github.com/jamesqquick
+
+Myeonghun Jeong helped me get the questions displaying from a javascript array of objects.
+
+
 
 
 

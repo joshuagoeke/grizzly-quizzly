@@ -17,7 +17,7 @@
     margin-bottom:0.5rem;
     width:100%;
     font-size:1.8rem;
-    font-family: var(--mainFont)
+    font-family: var(--mainFont);
 }
 
 .prefix{
@@ -28,5 +28,9 @@
 
 .abcd-option{
     padding: 1.5rem;
+    text-align: left;
 }
 
+#game{
+    margin: 2rem;
+}

@@ -23,6 +23,8 @@
     var timerEl = document.querySelector('#timer');
     var score = 0;
     var scoreEl = document.querySelector('#score');
+   
+    
 
     var liveQuestion = document.querySelector("#question");
     // var liveAnswerStem = document.querySelector('.abcd-container');
@@ -70,11 +72,11 @@ var qBank = [
 // function questionDisplay(){
 
 
-liveQuestion.textContent = qBank[0].question; 
-liveOption0.textContent = qBank[0].answers[0];
-liveOption1.textContent = qBank[0].answers[1];
-liveOption2.textContent = qBank[0].answers[2];
-liveOption3.textContent = qBank[0].answers[3];
+// liveQuestion.textContent = qBank[0].question; 
+// liveOption0.textContent = qBank[0].answers[0];
+// liveOption1.textContent = qBank[0].answers[1];
+// liveOption2.textContent = qBank[0].answers[2];
+// liveOption3.textContent = qBank[0].answers[3];
 
 // }; //function wrapper
 console.log((qBank[0].question));
@@ -82,9 +84,6 @@ console.log((qBank[0].question));
 console.log((qBank[0].answers[qBank[0].DingDing]));
 
 //TIMER
-// function startTimer(){
-//     timeLeft =90;
-// };
 
 function countDown(){
     timeLeft = 90;
@@ -100,8 +99,8 @@ function countDown(){
         }
     }, 1000);
 };
-
-liveOption0.addEventListener("click", countDown());
+countDown();
+// liveOption0.addEventListener("click", localStorage.setItem("score", JSON.stringify(score));
 liveOption1.addEventListener("click", function(){
     timeLeft = timeLeft -15;
     timerEl.textContent = timeLeft;
@@ -114,6 +113,16 @@ liveOption2.addEventListener("click", function(){
     score = score + 10;
     scoreEl.textContent = score;
 });
+
+localStorage.setItem("score", JSON.stringify(score));
+
+var scoreListEl = document.querySelector('.score-list');
+var scoreListItem = document.createElement('li');
+
+scoreListItem.textContent = JSON.parse(localStorage.getItem("score"));
+console.log(scoreListItem);
+scoreListEl.appendChild(scoreListItem);
+//make for loop to make li elements and fill them with text from local storage
 
 // function grader(event){
 //     if qBank[0].answers[qBank[0].DingDing]

@@ -39,6 +39,14 @@
     margin: 2rem;
 }
 
+.all-done{
+    margin: 2rem;
+    margin-bottom:0.5rem;
+    width:100%;
+    font-size:1.8rem;
+    font-family: var(--mainFont);
+}
+
 @media screen and (max-width: 820px){
     .container{
         font-family: var(--mainFont);
@@ -49,6 +57,3 @@
       }
   }
 
-  .hidden{
-    display: none;
-  }

@@ -103,7 +103,7 @@ gamEl.addEventListener("click", function(event) {
         timeLeft = timeLeft -15;
         timerEl.textContent = timeLeft;
             if (timeLeft <= 0){
-                clearInterval(timeInterval);
+                gameOver();
             };
         
     }
@@ -141,7 +141,8 @@ countDown();
 // });
 
 function gameOver(){
-    gamEl.setAttribute('data-state', 'hidden')
+    gamEl.style.display = "none";
+    doneScreen.style.display = "flexbox";
 
     }
 

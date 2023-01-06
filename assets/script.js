@@ -30,8 +30,18 @@
     var submitInitials = document.querySelector('initialbox');
 console.log(submitInitials);
     var scoreArray = [];
-
-
+    var allScores =[];
+    var sortedScores = [
+        { initials: "MA",
+            scored: 5,
+        },
+        { initials: "YO",
+            scored: 7,
+        },
+        { initials: "MA",
+            scored: 6,
+        },
+ ];
     var liveQuestion = document.querySelector("#question");
     var gamEl = document.querySelector('#game');
     
@@ -151,9 +161,6 @@ function gameOver(){
 
 
 function recordScore(){
-
-
-
     submitInitials = document.getElementById("initialbox").value;
         // console.log(submitInitials);
     
@@ -164,9 +171,18 @@ function recordScore(){
     console.log(lastScore);
     scoreArray.push(lastScore);
     console.log(scoreArray);
+    sortedScores.push(scoreArray[0]);
+    sortedScores.sort((a,b)=> b.scored - a.scored);
+    console.log(sortedScores);
+    document.getElementById('initialbox').value = '';
+    //make form disappear after click -FIX
     doneForm.style.display = "none";
     // doneButtons.style.display = "block";
 };
+
+function topTenScores(array){
+    array.
+ }
 
 localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
 

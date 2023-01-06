@@ -15,7 +15,7 @@
             <h3 class="score">Score: <span id="score"></span></h3>
             <h3 class="timer">Timer: <span id="timer"></span></h3>
         </header>
-        <div id= "game" style="display:none" class="justify-center flex-column" data-state = "visible">
+        <div id= "game" style="display:block" class="justify-center flex-column" data-state = "visible">
             <div class="question"><h2 id = "question">What is the answer to this question?</h2></div>
             <div class= "btn abcd-container" data-pick="0">
                 <p class="prefix" id="A" data-pick="0">A</p>
@@ -34,11 +34,16 @@
                 <p class="abcd-option" id="option3" data-pick="3">Choice 4</p>
             </div>
         </div>
-        <div class = "all-done" style="display:block">
-            <p> Here is a form to fill out.</p>
+        <div class = "all-done" style="display:none">
+            <form onsubmit = "recordStats()">
+                <h3>Please enter your initials.</h3>
+                <label for="initials">Initials:</label><br>
+                <input type="text" id="initials" name="initials"><br><br>
+                <input type="submit" class = "btn" value="Submit"><br>
+            </form>
             <h1>Thanks for Playing</h1>
-            <a class="btn done"  href="index.html">Play Again?</a>
-            <a class="btn done"  href="./highscores.html">High Scores</a>
+            <a class="btn done" style="display:none" href="index.html">Play Again?</a>
+            <a class="btn done" style="display:none" href="./highscores.html">High Scores</a>
         </div>
     </div>
 <script src="./assets/script.js"></script>

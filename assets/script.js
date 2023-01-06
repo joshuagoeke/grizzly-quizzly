@@ -24,7 +24,13 @@
     var score = 0;
     var scoreEl = document.querySelector('#score');
     var qCounter;
-    var doneScreen = document.querySelector('.all-done')
+    var doneScreen = document.querySelector('.all-done');
+    var doneForm = document.querySelector('.form');
+    var doneButtons = document.querySelectorAll('.btn done');
+    var submitInitials = document.querySelector('.form btn');
+console.log(submitInitials);
+    var scoreArray = [];
+
 
     var liveQuestion = document.querySelector("#question");
     var gamEl = document.querySelector('#game');
@@ -120,35 +126,39 @@ function countDown(){
             timerEl.textContent = timeLeft;
         } else {
             timerEl.textContent = "done"
-            clearInterval(timeInterval);
             gameOver();
+            clearInterval(timeInterval);
+            
         }
     }, 1000);
 };
 countDown();
-// liveOption0.addEventListener("click", localStorage.setItem("score", JSON.stringify(score));
-// liveOption1.addEventListener("click", function(){
-//     timeLeft = timeLeft -15;
-//     timerEl.textContent = timeLeft;
-//     if (timeLeft <= 0){
-//         clearInterval(timeInterval);
-//     }
-// });
-
-// liveOption2.addEventListener("click", function(){
-//     score = score + 10;
-//     scoreEl.textContent = score;
-// });
 
 function gameOver(){
     gamEl.style.display = "none";
-    doneScreen.style.display = "flexbox";
+    doneScreen.style.display = "block";
 
     }
 
+// function putYourNameOnIt(){
+    
+// }
 
+function recordScore(){
+    let initials = document.getElementById("initials");
+        console.log(initials);
+    
+    var lastScore = {
+        result: score,
+        initial: initials,
+    };
+    scoreArray.push(lastScore);
+    console.log(scoreArray);
+    doneForm.style.display = "none";
+    doneButtons.style.display = "block";
+};
 
-
+localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
 
 localStorage.setItem("score", JSON.stringify(score));
 

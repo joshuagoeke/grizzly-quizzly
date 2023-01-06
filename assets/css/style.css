@@ -110,6 +110,7 @@ h3 {
   box-shadow: 0 0.4rem 1.4rem 0 rgb(22, 1, 49);
 }
 
+
 .btn[disabled]:hover {
   cursor: not-allowed;
   transform:none;

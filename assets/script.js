@@ -23,17 +23,12 @@
     var timerEl = document.querySelector('#timer');
     var score = 0;
     var scoreEl = document.querySelector('#score');
-   
-    
+    var qCounter;
+    var doneScreen = document.querySelector('.all-done')
 
     var liveQuestion = document.querySelector("#question");
-    // var liveAnswerStem = document.querySelector('.abcd-container');
+    var gamEl = document.querySelector('#game');
     
-    var livePrefixA = document.querySelector('#A');
-    var livePrefixB = document.querySelector('#B');
-    var livePrefixC = document.querySelector('#C');
-    var livePrefixD = document.querySelector('#D');
-
     var liveOption0 = document.querySelector('#option0');
     var liveOption1 = document.querySelector('#option1');
     var liveOption2 = document.querySelector('#option2');
@@ -67,21 +62,52 @@ var qBank = [
     },
 ];
 
-// Functions
+// FUNCTIONS
 
+qCounter = 4;
 // function questionDisplay(){
 
 
-// liveQuestion.textContent = qBank[0].question; 
-// liveOption0.textContent = qBank[0].answers[0];
-// liveOption1.textContent = qBank[0].answers[1];
-// liveOption2.textContent = qBank[0].answers[2];
-// liveOption3.textContent = qBank[0].answers[3];
+function nextQuestion(){
+    qCounter++;
+}
 
-// }; //function wrapper
-console.log((qBank[0].question));
+//DISPLAY
+liveQuestion.textContent = qBank[qCounter].question; 
+liveOption0.textContent = qBank[qCounter].answers[0];
+liveOption1.textContent = qBank[qCounter].answers[1];
+liveOption2.textContent = qBank[qCounter].answers[2];
+liveOption3.textContent = qBank[qCounter].answers[3];
+// };
 
-console.log((qBank[0].answers[qBank[0].DingDing]));
+// would have been so good
+// console.log((qBank[0].answers[qBank[0].DingDing]));
+
+//GRADER
+
+gamEl.addEventListener("click", function(event) {
+    var element = event.target;
+    var picked = element
+    // console.log(picked);
+    if (element.matches('.btn abcd-container')){
+        picked = Number(element.getAttribute("data-pick"));
+        console.log(picked);
+    }else{
+        picked = Number(element.getAttribute("data-pick"));
+        console.log(picked);
+    };
+    if (picked == qBank[qCounter].DingDing){
+        score = score + 10;
+        scoreEl.textContent = score;
+    }else{
+        timeLeft = timeLeft -15;
+        timerEl.textContent = timeLeft;
+            if (timeLeft <= 0){
+                clearInterval(timeInterval);
+            };
+        
+    }
+});
 
 //TIMER
 
@@ -95,35 +121,42 @@ function countDown(){
         } else {
             timerEl.textContent = "done"
             clearInterval(timeInterval);
-            //end the game
+            gameOver();
         }
     }, 1000);
 };
 countDown();
 // liveOption0.addEventListener("click", localStorage.setItem("score", JSON.stringify(score));
-liveOption1.addEventListener("click", function(){
-    timeLeft = timeLeft -15;
-    timerEl.textContent = timeLeft;
-    if (timeLeft <= 0){
-        clearInterval(timeInterval);
-    }
-});
+// liveOption1.addEventListener("click", function(){
+//     timeLeft = timeLeft -15;
+//     timerEl.textContent = timeLeft;
+//     if (timeLeft <= 0){
+//         clearInterval(timeInterval);
+//     }
+// });
 
-liveOption2.addEventListener("click", function(){
-    score = score + 10;
-    scoreEl.textContent = score;
-});
+// liveOption2.addEventListener("click", function(){
+//     score = score + 10;
+//     scoreEl.textContent = score;
+// });
+
+function gameOver(){
+    gamEl.setAttribute('data-state', 'hidden')
+
+    }
+
+
+
+
 
 localStorage.setItem("score", JSON.stringify(score));
 
-var scoreListEl = document.querySelector('.score-list');
-var scoreListItem = document.createElement('li');
+// var scoreListEl = document.querySelector('.score-list');
+// var scoreListItem = document.createElement('li');
 
-scoreListItem.textContent = JSON.parse(localStorage.getItem("score"));
-console.log(scoreListItem);
-scoreListEl.appendChild(scoreListItem);
+// scoreListItem.textContent = JSON.parse(localStorage.getItem("score"));
+// console.log(scoreListItem);
+// scoreListEl.appendChild(scoreListItem);
 //make for loop to make li elements and fill them with text from local storage
 
-// function grader(event){
-//     if qBank[0].answers[qBank[0].DingDing]
-// };
+

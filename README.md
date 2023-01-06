@@ -12,6 +12,8 @@ Myeonghun Jeong helped me get the questions displaying from a javascript array o
 
 https://github.com/mjtic/
 
+Erin Peifer helped me get my timer working.
+
 
 
 

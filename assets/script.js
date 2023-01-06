@@ -19,8 +19,10 @@
     //  append score values to page
 
 //Variables
-    var timeLeft = 0;
+    var timeLeft;
+    var timerEl = document.querySelector('#timer');
     var score = 0;
+    var scoreEl = document.querySelector('#score');
 
     var liveQuestion = document.querySelector("#question");
     // var liveAnswerStem = document.querySelector('.abcd-container');
@@ -43,34 +45,22 @@ var qBank = [
     },
     {
         question: "The award-winning Monty Python CD-ROM from 1994 was called:",
-        answer1: "Life of Brian",
-        answer2: "Complete Waste of Time",
-        answer3: "Quest for the Holy Grail",
-        answer4: "A Fish Called Wanda",
+        answers: ["Life of Brian", "Complete Waste of Time", "Quest for the Holy Grail", "A Fish Called Wanda",],
         DingDing: 1,
     },
     {
         question: "What is the air-speed velocity of an unladen swallow?",
-        answer1: "42",
-        answer2: "Complete Waste of Time",
-        answer3: "9.8 m/s^2",
-        answer4: "An African or a European Swallow?",
+        answers: ["42", "Complete Waste of Time", "9.8 m/s^2", "An African or a European Swallow?",],
         DingDing: 3,
     },
     {
         question: "Which Actor was in Harry Potter films and A Fish Called Wanda?",
-        answer1: "John Cleese",
-        answer2: "Terry Jones",
-        answer3: "Eric Idle",
-        answer4: "Michael Palin",
+        answers: ["John Cleese", "Terry Jones", "Eric Idle", "Michael Palin",],
         DingDing: 0,
     },
     {
         question: "To what shalt thou count when hurling the Holy Hand Grenade of Antioch?",
-        answer1: "1",
-        answer2: "2",
-        answer3: "3",
-        answer4: "5",
+        answers: ["1", "2", "3", "5",],
         DingDing: 2,
     },
 ];
@@ -91,14 +81,39 @@ console.log((qBank[0].question));
 
 console.log((qBank[0].answers[qBank[0].DingDing]));
 
-console
-
-// function grader(){
-//     if (qBank.DingDing){
-//         //increase score
-//     } else {
-//         //decrease time
-//     }
-//     if (timeLeft=0 || //done//)
+//TIMER
+// function startTimer(){
+//     timeLeft =90;
 // };
 
+function countDown(){
+    timeLeft = 90;
+    timerEl.textContent = timeLeft;
+    var timeInterval = setInterval(function (){
+        if (timeLeft > 0){
+            timeLeft--;
+            timerEl.textContent = timeLeft;
+        } else {
+            timerEl.textContent = "done"
+            clearInterval(timeInterval);
+            //end the game
+        }
+    }, 1000);
+};
+
+liveOption0.addEventListener("click", countDown());
+liveOption1.addEventListener("click", function(){
+    timeLeft = timeLeft -15;
+    timerEl.textContent = timeLeft;
+    if (timeLeft === 0){
+        clearInterval(timeInterval);
+    }
+});
+
+// liveOption2.addEventListener("click", function(){
+//     score = score + 10;
+// };
+
+// function grader(event){
+//     if qBank[0].answers[qBank[0].DingDing]
+// };

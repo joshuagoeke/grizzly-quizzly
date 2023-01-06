@@ -30,18 +30,46 @@
     var submitInitials = document.querySelector('initialbox');
 console.log(submitInitials);
     var scoreArray = [];
-    var allScores =[];
+    var yoMaMa =[];
     var sortedScores = [
         { initials: "MA",
-            scored: 5,
+            scored: 98,
         },
         { initials: "YO",
-            scored: 7,
+            scored: 100,
         },
         { initials: "MA",
-            scored: 6,
+            scored: 99,
         },
- ];
+        { initials: "MA",
+            scored: 15,
+        },
+        { initials: "YO",
+            scored: 17,
+        },
+        { initials: "MA",
+            scored: 16,
+        },
+        { initials: "MA",
+            scored: 10,
+        },
+        { initials: "YO",
+            scored: 20,
+        },
+        { initials: "MA",
+            scored: 0,
+        },
+        { initials: "MA",
+            scored: 70,
+        },
+
+        { initials: "MA",
+            scored: 0,
+        },
+        { initials: "MA",
+            scored: 0,
+        },
+    ];
     var liveQuestion = document.querySelector("#question");
     var gamEl = document.querySelector('#game');
     
@@ -178,11 +206,15 @@ function recordScore(){
     //make form disappear after click -FIX
     doneForm.style.display = "none";
     // doneButtons.style.display = "block";
+    storeTenScores(sortedScores);
 };
 
-function topTenScores(array){
-    array.
- }
+recordScore();
+
+function storeTenScores(array){
+    var topTen = array.splice(0, 10);
+    localStorage.setItem("top10HighScores", JSON.stringify(topTen))
+};
 
 localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
 

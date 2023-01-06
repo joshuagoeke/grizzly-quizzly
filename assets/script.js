@@ -105,14 +105,15 @@ liveOption0.addEventListener("click", countDown());
 liveOption1.addEventListener("click", function(){
     timeLeft = timeLeft -15;
     timerEl.textContent = timeLeft;
-    if (timeLeft === 0){
+    if (timeLeft <= 0){
         clearInterval(timeInterval);
     }
 });
 
-// liveOption2.addEventListener("click", function(){
-//     score = score + 10;
-// };
+liveOption2.addEventListener("click", function(){
+    score = score + 10;
+    scoreEl.textContent = score;
+});
 
 // function grader(event){
 //     if qBank[0].answers[qBank[0].DingDing]

@@ -17,15 +17,13 @@
 h1,
 h2,
 h3,
-h4 {
-  margin-bottom: 1rem;
-  font-family: var(--mainFont);
-};
+h4, {margin-bottom: 1rem;}
 
 h1 {
   font-size: 5.4rem;
   color:rgb(235, 147, 65);
   margin-bottom: 2rem;
+  font-family: var(--mainFont);
 }
 
 h1 > span {
@@ -96,6 +94,7 @@ h3 {
   text-decoration: none;
   text-align: center;
   color:rgb(235, 147, 65);
+  font-family: var(--mainFont);
   transition: all 150ms ease-in-out;
 }
 

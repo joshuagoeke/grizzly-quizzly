@@ -19,6 +19,9 @@
     //  append score values to page
 
 //Variables
+    var timeLeft = 0;
+    var score = 0;
+
     var liveQuestion = document.querySelector("#question");
     // var liveAnswerStem = document.querySelector('.abcd-container');
     
@@ -32,13 +35,10 @@
     var liveOption2 = document.querySelector('#option2');
     var liveOption3 = document.querySelector('#option3');
 
-var theWholeShebang = [
+var qBank = [
     {
         question: "What did Guido von Rossum name his programming language, Python, after?",
-        answer1: "Slytherin House",
-        answer2: "The snake-like nature of the code",
-        answer3: "Monty Python's Flying Circus",
-        answer4: "Very long string objects",
+        answers: ["Slytherin House","The snake-like nature of the code", "Monty Python's Flying Circus", "Very long string objects",],
         DingDing: 2,
     },
     {
@@ -77,15 +77,28 @@ var theWholeShebang = [
 
 // Functions
 
-// function questionCounter(){
+// function questionDisplay(){
 
 
-liveQuestion.textContent = theWholeShebang[0].question; 
-liveOption0.textContent = theWholeShebang[0].answer1;
-liveOption1.textContent = theWholeShebang[0].answer2;
-liveOption2.textContent = theWholeShebang[0].answer3;
-liveOption3.textContent = theWholeShebang[0].answer4;
+liveQuestion.textContent = qBank[0].question; 
+liveOption0.textContent = qBank[0].answers[0];
+liveOption1.textContent = qBank[0].answers[1];
+liveOption2.textContent = qBank[0].answers[2];
+liveOption3.textContent = qBank[0].answers[3];
 
 // }; //function wrapper
-console.log((theWholeShebang[1].question));
+console.log((qBank[0].question));
+
+console.log((qBank[0].answers[qBank[0].DingDing]));
+
+console
+
+// function grader(){
+//     if (qBank.DingDing){
+//         //increase score
+//     } else {
+//         //decrease time
+//     }
+//     if (timeLeft=0 || //done//)
+// };
 

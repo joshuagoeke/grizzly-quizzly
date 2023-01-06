@@ -20,56 +20,47 @@
 
 //Variables
     var timeLeft;
+
     var timerEl = document.querySelector('#timer');
     var score = 0;
     var scoreEl = document.querySelector('#score');
-    var qCounter;
+    var qCounter = 0;
     var doneScreen = document.querySelector('.all-done');
     var doneForm = document.querySelector('.done-form');
     var doneButtons = document.querySelectorAll('.btn done');
-    var submitInitials = document.querySelector('initialbox');
-console.log(submitInitials);
-    var scoreArray = [];
-    var yoMaMa =[];
-    var sortedScores = [
-        { initials: "MA",
-            scored: 98,
-        },
-        { initials: "YO",
-            scored: 100,
-        },
-        { initials: "MA",
-            scored: 99,
-        },
-        { initials: "MA",
-            scored: 15,
-        },
-        { initials: "YO",
-            scored: 17,
-        },
-        { initials: "MA",
-            scored: 16,
-        },
-        { initials: "MA",
-            scored: 10,
-        },
-        { initials: "YO",
-            scored: 20,
-        },
-        { initials: "MA",
-            scored: 0,
-        },
-        { initials: "MA",
-            scored: 70,
-        },
 
-        { initials: "MA",
-            scored: 0,
-        },
-        { initials: "MA",
-            scored: 0,
-        },
-    ];
+    var submitInitials = document.querySelector('initialbox');
+
+    var scoreArray = [];
+    var sortedScores = [
+        { initials: "MA", scored: 98,},
+        { initials: "YO", scored: 100,},
+        { initials: "MA", scored: 99,},
+        { initials: "MA", scored: 15,},
+        { initials: "YO", scored: 17,},
+        { initials: "MA", scored: 16,},
+        { initials: "MA", scored: 10,},
+        { initials: "YO", scored: 20,},
+        { initials: "MA", scored: 0,},
+        { initials: "MA", scored: 70,},
+        { initials: "MA", scored: 0,},
+        { initials: "MA", scored: 0,},
+    ];;
+    // var yoMaMa = [
+    //     { initials: "MA", scored: 98,},
+    //     { initials: "YO", scored: 100,},
+    //     { initials: "MA", scored: 99,},
+    //     { initials: "MA", scored: 15,},
+    //     { initials: "YO", scored: 17,},
+    //     { initials: "MA", scored: 16,},
+    //     { initials: "MA", scored: 10,},
+    //     { initials: "YO", scored: 20,},
+    //     { initials: "MA", scored: 0,},
+    //     { initials: "MA", scored: 70,},
+    //     { initials: "MA", scored: 0,},
+    //     { initials: "MA", scored: 0,},
+    // ];
+    // sortedScores = yoMaMa; //FIX
     var liveQuestion = document.querySelector("#question");
     var gamEl = document.querySelector('#game');
     
@@ -108,7 +99,7 @@ var qBank = [
 
 // FUNCTIONS
 
-qCounter = 4;
+// qCounter = 0;
 // function questionDisplay(){
 
 
@@ -117,6 +108,7 @@ function nextQuestion(){
 }
 
 //DISPLAY
+// function runGame{
 liveQuestion.textContent = qBank[qCounter].question; 
 liveOption0.textContent = qBank[qCounter].answers[0];
 liveOption1.textContent = qBank[qCounter].answers[1];
@@ -126,6 +118,24 @@ liveOption3.textContent = qBank[qCounter].answers[3];
 
 // would have been so good
 // console.log((qBank[0].answers[qBank[0].DingDing]));
+
+// function init(){
+//     if (sortedScores.length <1){
+//         sortedScores = yoMaMa;
+//         console.log("unsorted: " + JSON.stringify(sortedScores));
+//     } else {
+//         var tempArray = [];
+//         tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
+//         sortedScores = tempArray[0];
+//         console.log("from local storage: " + sortedScores);
+//     };
+//     qCounter =0;
+    // runGame();
+    // countDown();
+// };
+
+// init();
+countDown();
 
 //GRADER
 
@@ -170,7 +180,7 @@ function countDown(){
         }
     }, 1000);
 };
-countDown();
+
 
 function gameOver(){
     gamEl.style.display = "none";
@@ -196,12 +206,12 @@ function recordScore(){
         initials: JSON.stringify(submitInitials),
         scored: score,
     };
-    console.log(lastScore);
+    // console.log(lastScore);
     scoreArray.push(lastScore);
-    console.log(scoreArray);
+    // console.log(scoreArray);
     sortedScores.push(scoreArray[0]);
     sortedScores.sort((a,b)=> b.scored - a.scored);
-    console.log(sortedScores);
+    // console.log(sortedScores);
     document.getElementById('initialbox').value = '';
     //make form disappear after click -FIX
     doneForm.style.display = "none";

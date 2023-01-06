@@ -25,9 +25,9 @@
     var scoreEl = document.querySelector('#score');
     var qCounter;
     var doneScreen = document.querySelector('.all-done');
-    var doneForm = document.querySelector('.form');
+    var doneForm = document.querySelector('.done-form');
     var doneButtons = document.querySelectorAll('.btn done');
-    var submitInitials = document.querySelector('.form btn');
+    var submitInitials = document.querySelector('initialbox');
 console.log(submitInitials);
     var scoreArray = [];
 
@@ -137,25 +137,35 @@ countDown();
 function gameOver(){
     gamEl.style.display = "none";
     doneScreen.style.display = "block";
-
+    score = document.getElementById("score").textContent = Number(timeLeft) + score;
+    console.log(score);
+    if (score < 0){
+        score = 0};
+        console.log(score);
     }
 
 // function putYourNameOnIt(){
     
 // }
 
+
+
 function recordScore(){
-    let initials = document.getElementById("initials");
-        console.log(initials);
+
+
+
+    submitInitials = document.getElementById("initialbox").value;
+        // console.log(submitInitials);
     
     var lastScore = {
-        result: score,
-        initial: initials,
+        initials: JSON.stringify(submitInitials),
+        scored: score,
     };
+    console.log(lastScore);
     scoreArray.push(lastScore);
     console.log(scoreArray);
     doneForm.style.display = "none";
-    doneButtons.style.display = "block";
+    // doneButtons.style.display = "block";
 };
 
 localStorage.setItem("scoreArray", JSON.stringify(scoreArray));

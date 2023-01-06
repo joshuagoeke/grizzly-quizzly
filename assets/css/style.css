@@ -17,14 +17,13 @@
 h1,
 h2,
 h3,
-h4, {
+h4 {
   margin-bottom: 1rem;
-  
-}
+  font-family: var(--mainFont);
+};
 
 h1 {
   font-size: 5.4rem;
-  font-family: var(--mainFont);
   color:rgb(235, 147, 65);
   margin-bottom: 2rem;
 }

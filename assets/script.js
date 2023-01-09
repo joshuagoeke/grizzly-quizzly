@@ -24,7 +24,7 @@
     var timerEl = document.querySelector('#timer');
     var score = 0;
     var scoreEl = document.querySelector('#score');
-    var qCounter = 0;
+    // var qCounter;
     var doneScreen = document.querySelector('.all-done');
     var doneForm = document.querySelector('.done-form');
     var doneButtons = document.querySelectorAll('.btn done');
@@ -92,7 +92,29 @@ var qBank = [
 
 function nextQuestion(){
     qCounter++;
-}
+};
+
+function init(){
+    // var tempArray = [];
+    // tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
+    //     sortedScores = tempArray[0];
+    //     console.log("from local storage: " + sortedScores);
+    // if (sortedScores.length <1){
+    //     sortedScores = yoMaMa;
+    //     console.log("unsorted: " + JSON.stringify(sortedScores));
+    // } else {
+    //     var tempArray = [];
+    //     tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
+    //     sortedScores = tempArray[0];
+    //     console.log("from local storage: " + sortedScores);
+    // };
+    qCounter = 0;
+    console.log("init qCounter: " + qCounter);
+    // runGame();
+    countDown();
+};
+
+init();
 
 //DISPLAY
 // function runGame{
@@ -106,23 +128,8 @@ liveOption3.textContent = qBank[qCounter].answers[3];
 // would have been so good
 // console.log((qBank[0].answers[qBank[0].DingDing]));
 
-// function init(){
-//     if (sortedScores.length <1){
-//         sortedScores = yoMaMa;
-//         console.log("unsorted: " + JSON.stringify(sortedScores));
-//     } else {
-//         var tempArray = [];
-//         tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
-//         sortedScores = tempArray[0];
-//         console.log("from local storage: " + sortedScores);
-//     };
-//     qCounter =0;
-    // runGame();
-    // countDown();
-// };
 
-// init();
-countDown();
+// countDown();
 
 //GRADER
 
@@ -140,10 +147,15 @@ gamEl.addEventListener("click", function(event) {
     if (picked == qBank[qCounter].DingDing){
         score = score + 10;
         scoreEl.textContent = score;
+        nextQuestion()
+            if (timeLeft <= 0 || qCounter >=5){
+                gameOver();
+            };
     }else{
         timeLeft = timeLeft -15;
         timerEl.textContent = timeLeft;
-            if (timeLeft <= 0){
+        nextQuestion()
+            if (timeLeft <= 0 || qCounter >=5){
                 gameOver();
             };
         

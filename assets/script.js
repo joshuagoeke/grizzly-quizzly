@@ -86,19 +86,8 @@ var qBank = [
 // FUNCTIONS
 
 function init(){
-    // var tempArray = [];
-    // tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
-    //     sortedScores = tempArray[0];
-    //     console.log("from local storage: " + sortedScores);
-    // if (sortedScores.length <1){
-    //     sortedScores = yoMaMa;
-    //     console.log("unsorted: " + JSON.stringify(sortedScores));
-    // } else {
-    //     var tempArray = [];
-    //     tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
-    //     sortedScores = tempArray[0];
-    //     console.log("from local storage: " + sortedScores);
-    // };
+    checkStorage();
+   
     qCounter = 0;
     console.log("init qCounter: " + qCounter);
     countDown();
@@ -177,7 +166,7 @@ function gameOver(){
     if (score < 0){
         score = 0};
         console.log(score);
-    }
+    };
 
 function recordScore(){
     submitInitials = document.getElementById("initialbox").value;
@@ -200,23 +189,26 @@ function recordScore(){
     storeTenScores(sortedScores);
 };
 
-// recordScore();
 
 function storeTenScores(array){
     var topTen = array.splice(0, 10);
     localStorage.setItem("top10HighScores", JSON.stringify(topTen))
 };
 
-// localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
-
-// localStorage.setItem("score", JSON.stringify(score));
-
-// var scoreListEl = document.querySelector('.score-list');
-// var scoreListItem = document.createElement('li');
-
-// scoreListItem.textContent = JSON.parse(localStorage.getItem("score"));
-// console.log(scoreListItem);
-// scoreListEl.appendChild(scoreListItem);
-//make for loop to make li elements and fill them with text from local storage
-
+function checkStorage(){
+ var tempArray = [];
+    tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
+        sortedScores = tempArray[0];
+        console.log("from local storage: " + sortedScores);
+    if (sortedScores === null || sortedScores.length <1){
+        sortedScores = yoMaMa;
+        console.log("unsorted: " + sortedScores);
+    } 
+    // else {
+    //     var tempArray = [];
+    //     tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));
+    //     sortedScores = tempArray[0];
+    //     console.log("from local storage: " + sortedScores);
+    // };
+};
 

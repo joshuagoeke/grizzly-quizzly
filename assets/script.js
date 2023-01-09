@@ -85,14 +85,6 @@ var qBank = [
 
 // FUNCTIONS
 
-// qCounter = 0;
-// function questionDisplay(){
-
-
-// function nextQuestion(){
-//     qCounter++;
-// };
-
 function init(){
     // var tempArray = [];
     // tempArray.push(JSON.parse(localStorage.getItem("top10HighScores")));

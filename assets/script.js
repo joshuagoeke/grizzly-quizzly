@@ -32,7 +32,8 @@
     var submitInitials = document.querySelector('initialbox');
 
     var scoreArray = [];
-    var sortedScores = [
+    var sortedScores = [];
+    var yoMaMa = [
         { initials: "MA", scored: 98,},
         { initials: "YO", scored: 100,},
         { initials: "MA", scored: 99,},
@@ -45,21 +46,7 @@
         { initials: "MA", scored: 70,},
         { initials: "MA", scored: 0,},
         { initials: "MA", scored: 0,},
-    ];;
-    // var yoMaMa = [
-    //     { initials: "MA", scored: 98,},
-    //     { initials: "YO", scored: 100,},
-    //     { initials: "MA", scored: 99,},
-    //     { initials: "MA", scored: 15,},
-    //     { initials: "YO", scored: 17,},
-    //     { initials: "MA", scored: 16,},
-    //     { initials: "MA", scored: 10,},
-    //     { initials: "YO", scored: 20,},
-    //     { initials: "MA", scored: 0,},
-    //     { initials: "MA", scored: 70,},
-    //     { initials: "MA", scored: 0,},
-    //     { initials: "MA", scored: 0,},
-    // ];
+    ];
     // sortedScores = yoMaMa; //FIX
     var liveQuestion = document.querySelector("#question");
     var gamEl = document.querySelector('#game');
@@ -219,16 +206,16 @@ function recordScore(){
     storeTenScores(sortedScores);
 };
 
-recordScore();
+// recordScore();
 
 function storeTenScores(array){
     var topTen = array.splice(0, 10);
     localStorage.setItem("top10HighScores", JSON.stringify(topTen))
 };
 
-localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+// localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
 
-localStorage.setItem("score", JSON.stringify(score));
+// localStorage.setItem("score", JSON.stringify(score));
 
 // var scoreListEl = document.querySelector('.score-list');
 // var scoreListItem = document.createElement('li');

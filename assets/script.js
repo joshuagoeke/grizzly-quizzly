@@ -20,7 +20,6 @@
 
 //Variables
     var timeLeft;
-
     var timerEl = document.querySelector('#timer');
     var score = 0;
     var scoreEl = document.querySelector('#score');
@@ -90,9 +89,9 @@ var qBank = [
 // function questionDisplay(){
 
 
-function nextQuestion(){
-    qCounter++;
-};
+// function nextQuestion(){
+//     qCounter++;
+// };
 
 function init(){
     // var tempArray = [];
@@ -110,26 +109,11 @@ function init(){
     // };
     qCounter = 0;
     console.log("init qCounter: " + qCounter);
-    // runGame();
     countDown();
+    showQuestion();
 };
 
 init();
-
-//DISPLAY
-// function runGame{
-liveQuestion.textContent = qBank[qCounter].question; 
-liveOption0.textContent = qBank[qCounter].answers[0];
-liveOption1.textContent = qBank[qCounter].answers[1];
-liveOption2.textContent = qBank[qCounter].answers[2];
-liveOption3.textContent = qBank[qCounter].answers[3];
-// };
-
-// would have been so good
-// console.log((qBank[0].answers[qBank[0].DingDing]));
-
-
-// countDown();
 
 //GRADER
 
@@ -147,20 +131,30 @@ gamEl.addEventListener("click", function(event) {
     if (picked == qBank[qCounter].DingDing){
         score = score + 10;
         scoreEl.textContent = score;
-        nextQuestion()
+        qCounter++;
             if (timeLeft <= 0 || qCounter >=5){
                 gameOver();
             };
+        showQuestion();
     }else{
         timeLeft = timeLeft -15;
         timerEl.textContent = timeLeft;
-        nextQuestion()
+        qCounter++;
             if (timeLeft <= 0 || qCounter >=5){
                 gameOver();
             };
-        
+        showQuestion();
     }
 });
+
+//DISPLAY
+function showQuestion(){
+    liveQuestion.textContent = qBank[qCounter].question; 
+    liveOption0.textContent = qBank[qCounter].answers[0];
+    liveOption1.textContent = qBank[qCounter].answers[1];
+    liveOption2.textContent = qBank[qCounter].answers[2];
+    liveOption3.textContent = qBank[qCounter].answers[3];
+    };
 
 //TIMER
 
@@ -186,16 +180,12 @@ function gameOver(){
     doneScreen.style.display = "block";
     score = document.getElementById("score").textContent = Number(timeLeft) + score;
     console.log(score);
+    timeLeft = 0;
+    timerEl.textContent = "done"
     if (score < 0){
         score = 0};
         console.log(score);
     }
-
-// function putYourNameOnIt(){
-    
-// }
-
-
 
 function recordScore(){
     submitInitials = document.getElementById("initialbox").value;
